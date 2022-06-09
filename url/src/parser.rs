@@ -161,7 +161,7 @@ impl SchemeType {
 
     pub fn from(s: &str) -> Self {
         match s {
-            "http" | "https" | "ws" | "wss" | "ftp" => SchemeType::SpecialNotFile,
+            "http" | "https" | "ws" | "wss" | "ftp" | "spartan" => SchemeType::SpecialNotFile,
             "file" => SchemeType::File,
             _ => SchemeType::NotSpecial,
         }
@@ -173,6 +173,7 @@ pub fn default_port(scheme: &str) -> Option<u16> {
         "http" | "ws" => Some(80),
         "https" | "wss" => Some(443),
         "ftp" => Some(21),
+	"spartan" => Some(300),
         _ => None,
     }
 }
